@@ -16,7 +16,7 @@
     <% @polls.each do |poll| %>
       <tr>
         <td><%= link_to poll.id, poll_path(poll) %></td>
-        <td><%= poll.name %></td>
+        <td><%= link_to poll.name, poll_path(poll)%></td>
         <td><%= poll.description %></td>
         <td><%=l poll.created_at %></td>
         <td>
