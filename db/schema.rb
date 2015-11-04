@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104173233) do
+ActiveRecord::Schema.define(version: 20151104180428) do
 
   create_table "dimensions", force: :cascade do |t|
     t.string   "name"
@@ -26,5 +26,14 @@ ActiveRecord::Schema.define(version: 20151104173233) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "values", force: :cascade do |t|
+    t.string   "label"
+    t.integer  "dimension_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "values", ["dimension_id"], name: "index_values_on_dimension_id"
 
 end
