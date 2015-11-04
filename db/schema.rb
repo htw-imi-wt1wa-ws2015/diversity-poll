@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104180428) do
+ActiveRecord::Schema.define(version: 20151104203632) do
 
   create_table "dimensions", force: :cascade do |t|
     t.string   "name"
@@ -19,6 +19,17 @@ ActiveRecord::Schema.define(version: 20151104180428) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "dimensions_in_polls", force: :cascade do |t|
+    t.integer  "dimension_id"
+    t.integer  "poll_id"
+    t.integer  "position"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "dimensions_in_polls", ["dimension_id"], name: "index_dimensions_in_polls_on_dimension_id"
+  add_index "dimensions_in_polls", ["poll_id"], name: "index_dimensions_in_polls_on_poll_id"
 
   create_table "polls", force: :cascade do |t|
     t.string   "name"
