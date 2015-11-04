@@ -1,4 +1,4 @@
-<%= form_for @value, :html => { :class => "form-horizontal value" } do |f| %>
+<%= form_for [@dimension,@value], :html => { :class => "form-horizontal value" } do |f| %>
 
     <% if @value.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
@@ -22,17 +22,12 @@
     </div>
     <%= error_span(@value[:label]) %>
   </div>
-  <div class="control-group">
-    <%= f.label :dimension_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :dimension_id, :class => 'form-control' %>
-    </div>
-    <%= error_span(@value[:dimension_id]) %>
-  </div>
+  <%= f.hidden_field(:dimension_id, value: @value.dimension_id) %>
+
 
 
   <%= f.submit nil, :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            values_path, :class => 'btn btn-default' %>
+            dimension_values_path, :class => 'btn btn-default' %>
 
 <% end %>

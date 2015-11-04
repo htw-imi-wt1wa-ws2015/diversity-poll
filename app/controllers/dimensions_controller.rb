@@ -10,6 +10,7 @@ class DimensionsController < ApplicationController
   # GET /dimensions/1
   # GET /dimensions/1.json
   def show
+    @values = @dimension.values
   end
 
   # GET /dimensions/new
