@@ -1,5 +1,5 @@
 class PollsController < ApplicationController
-  before_action :set_poll, only: [:show, :edit, :update, :destroy]
+  before_action :set_poll, only: [:show, :edit, :update, :destroy, :take]
 
   # GET /polls
   # GET /polls.json
@@ -59,6 +59,19 @@ class PollsController < ApplicationController
       format.html { redirect_to polls_url, notice: 'Poll was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+  NewReply = Struct.new(:dimension, :dimension_id, :values, :reply)
+  def take
+    @replies = []
+    @poll.dimensions.each do | d |
+      r = NewReply.new
+      r.values = d.values
+      r.dimension = d.name
+      r.dimension_id = d.id
+      @replies << r
+    end
+
+
   end
 
   private

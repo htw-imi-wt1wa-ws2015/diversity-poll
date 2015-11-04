@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'polls#index'
-
+  get 'polls/:id/take' => 'polls#take', as: :take_poll
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -1,0 +1,24 @@
+<%- model_class = Poll -%>
+<div class="page-header">
+  <h1>Taking Poll <%= @poll.name %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= Dimension.human_attribute_name(:name) %></th>
+      <th>Option</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @replies.each do |reply| %>
+      <tr>
+        <td><%=reply.dimension%></td>
+        <td>asdf</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_poll_path,
+            :class => 'btn btn-primary' %>
