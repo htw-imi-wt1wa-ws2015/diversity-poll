@@ -1,25 +1,38 @@
-<%= form_for(@dimension) do |f| %>
-  <% if @dimension.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@dimension.errors.count, "error") %> prohibited this dimension from being saved:</h2>
+<%= form_for @dimension, :html => { :class => "form-horizontal dimension" } do |f| %>
 
-      <ul>
-      <% @dimension.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <% if @dimension.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@dimension.errors.count, "error") %> prohibited this dimension from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @dimension.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@dimension[:name]) %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :description, :class => 'form-control' %>
+    </div>
+    <%= error_span(@dimension[:description]) %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            dimensions_path, :class => 'btn btn-default' %>
+
 <% end %>
