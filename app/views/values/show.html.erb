@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Label:</strong>
+  <%= @value.label %>
+</p>
+
+<p>
+  <strong>Dimension:</strong>
+  <%= @value.dimension %>
+</p>
+
+<%= link_to 'Edit', edit_value_path(@value) %> |
+<%= link_to 'Back', values_path %>
