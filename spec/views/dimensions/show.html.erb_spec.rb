@@ -6,6 +6,7 @@ RSpec.describe "dimensions/show", type: :view do
       :name => "Name",
       :description => "MyText"
     ))
+    @values = assign(:values,@dimension.values)
   end
 
   it "renders attributes in <p>" do
