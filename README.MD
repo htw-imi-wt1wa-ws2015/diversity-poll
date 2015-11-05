@@ -95,6 +95,8 @@ identifiers that are specific to your application - these are often model names.
 Deploying a rails app to heroku has become quite easy. First, you have to create an
 account on heroku.com. You can setup ssh keys to avoid having to be prompted for a log in.
 
+see https://devcenter.heroku.com/articles/getting-started-with-rails4
+
 
     gem install heroku
     heroku create

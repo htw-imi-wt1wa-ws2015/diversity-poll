@@ -54,6 +54,8 @@ group :development do
   gem 'spring'
 end
 
+# changes for heroku, see https://devcenter.heroku.com/articles/getting-started-with-rails4
+
 group :production do
   gem 'rails_12factor'
   gem 'pg'
