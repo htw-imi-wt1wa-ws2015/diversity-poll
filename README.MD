@@ -79,8 +79,16 @@ and delete the bootstrap branch again.
     git commit -m "rails g scaffold Value label:string dimension:references"
 
 
-... and so on. 
+... and so on.
 
 ## Issues
-
+Twitter Bootstrap generates text_fields also for texts instead of text_areas;
+this causes the generated test to fail.
       <%= f.hidden_field(:dimension_id, value: @value.dimension_id) %>
+
+## Troubleshooting Hints
+First, make sure you found and read the error message. If you don't understand it,
+try to google the generic part of the error message. That is, remove any
+identifiers that are specific to your application - these are often model names.
+
+## Heroku deployment
