@@ -2,6 +2,7 @@
 <div class="page-header">
   <h1>Taking Poll <%= @poll.name %></h1>
 </div>
+<%= form_tag(replies_path, method: "post") do  -%>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -10,15 +11,16 @@
     </tr>
   </thead>
   <tbody>
-    <%= form_tag(replies_path, method: "post") do | f | %>
-    <%= hidden_field_tag(:id, @poll.id) %>
-    <% @replies.each do |reply| %>
-      <tr>
-        <td><%=reply.dimension%></td>
-        <td><%= collection_select("#{@marker}#{reply.dimension_id}", :value_id,reply.values, :id, :label,prompt: true) %>
-      </td>
-      </tr>
-<% end %>
-    <tr><td colspan="2"><%= submit_tag("Take Poll") %>     <% end %></td>
+
+      <%= hidden_field_tag(:id, @poll.id) %>
+      <% @replies.each do |reply| %>
+          <tr>
+            <td><%=reply.dimension%></td>
+            <td><%= collection_select("#{@marker}#{reply.dimension_id}", :value_id,reply.values, :id, :label,prompt: true) %></td>
+        </tr>
+      <% end %>
+      <tr><td colspan="2"><%= submit_tag("Take Poll") %></td></tr>
+
   </tbody>
 </table>
+  <% end -%>

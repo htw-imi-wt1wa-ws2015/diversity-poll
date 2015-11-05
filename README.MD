@@ -92,3 +92,16 @@ try to google the generic part of the error message. That is, remove any
 identifiers that are specific to your application - these are often model names.
 
 ## Heroku deployment
+Deploying a rails app to heroku has become quite easy. First, you have to create an
+account on heroku.com. You can setup ssh keys to avoid having to be prompted for a log in.
+
+
+    gem install heroku
+    heroku create
+    git push heroku master
+    git commit -m "heroku: prepared gems"
+    git push heroku master
+    heroku run rake db:migrate
+    heroku run rake db:populate
+    heroku open
+    heroku logs
