@@ -4,13 +4,14 @@ Rails.application.routes.draw do
     resources :values , :except => [:index,:show]
   end
   resources :polls
+  resources :replies, :only => [:create, :index]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'polls#index'
-  get 'polls/:id/take' => 'polls#take', as: :take_poll
+  get 'polls/:id/take' => 'replies#new', as: :take_poll
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

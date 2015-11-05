@@ -10,15 +10,15 @@
     </tr>
   </thead>
   <tbody>
+    <%= form_tag(replies_path, method: "post") do | f | %>
+    <%= hidden_field_tag(:id, @poll.id) %>
     <% @replies.each do |reply| %>
       <tr>
         <td><%=reply.dimension%></td>
-        <td>asdf</td>
+        <td><%= collection_select("#{@marker}#{reply.dimension_id}", :value_id,reply.values, :id, :label,prompt: true) %>
+      </td>
       </tr>
-    <% end %>
+<% end %>
+    <tr><td colspan="2"><%= submit_tag("Take Poll") %>     <% end %></td>
   </tbody>
 </table>
-
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_poll_path,
-            :class => 'btn btn-primary' %>

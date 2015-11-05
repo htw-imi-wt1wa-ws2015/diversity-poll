@@ -60,19 +60,7 @@ class PollsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  NewReply = Struct.new(:dimension, :dimension_id, :values, :reply)
-  def take
-    @replies = []
-    @poll.dimensions.each do | d |
-      r = NewReply.new
-      r.values = d.values
-      r.dimension = d.name
-      r.dimension_id = d.id
-      @replies << r
-    end
-
-
-  end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.

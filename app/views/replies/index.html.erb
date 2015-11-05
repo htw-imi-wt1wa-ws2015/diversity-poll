@@ -1,0 +1,23 @@
+<%- model_class = Reply -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:poll) %></th>
+      <th><%= model_class.human_attribute_name(:dimension) %></th>
+      <th><%= model_class.human_attribute_name(:value) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @replies.each do |reply| %>
+      <tr>
+        <td><%= reply.poll %></td>
+        <td><%= reply.dimension.name %></td>
+        <td><%= reply.value.label %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
