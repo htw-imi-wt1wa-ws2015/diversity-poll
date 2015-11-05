@@ -68,6 +68,15 @@ and delete the bootstrap branch again.
     git lg1
     git branch -d bootstrap
 
+Generated new application layout later:
+
+    rails g bootstrap:layout
+
+Twitter Bootstrap uses Internationalization: the .t is short for the translation
+helper using the texts defined in `config/locales` - see http://guides.rubyonrails.org/i18n.html
+While it is a good idea to incorporate this early on, it can slow you down too
+much while just experimenting.
+
 ## More models
 
     rails g scaffold Dimension name:string description:text
@@ -90,13 +99,13 @@ this causes the generated test to fail.
 First, make sure you found and read the error message. If you don't understand it,
 try to google the generic part of the error message. That is, remove any
 identifiers that are specific to your application - these are often model names.
+Answers found on Stackoverflow are usually a good bet.
 
 ## Heroku deployment
 Deploying a rails app to heroku has become quite easy. First, you have to create an
 account on heroku.com. You can setup ssh keys to avoid having to be prompted for a log in.
 
 see https://devcenter.heroku.com/articles/getting-started-with-rails4
-
 
     gem install heroku
     heroku create
@@ -107,3 +116,5 @@ see https://devcenter.heroku.com/articles/getting-started-with-rails4
     heroku run rake db:populate
     heroku open
     heroku logs
+
+The deployed app is at https://diversity-poll.herokuapp.com/
