@@ -117,3 +117,27 @@ see https://devcenter.heroku.com/articles/getting-started-with-rails4
     heroku logs
 
 The deployed app is at https://diversity-poll.herokuapp.com/
+
+## Setup Travis CI
+Travis CI is a Continuous Integration Service - or, more precisely, an
+automated build server - that integrates nicely with GitHub and Heroku.
+
+See the .travis.yml in this example project and to see how I setup travis.
+
+As we'll be using rspec for testing, we need to make sure that travis triggers
+the rspec tests. This can be done in two ways, either by putting a custom
+script name into .travis.yml or by modifying the `rake test` task. I like to
+do a combination of both: put `rake travis` into travis.yml and have a specific
+task in the Rakefile that can be easily adapted - see https://github.com/htw-imi-wt1wa-ws2015/ruby-learning/blob/master/Rakefile
+for an example.
+
+
+
+### Setup Travis build
+
+- sign in to http://travis-ci.org with your GitHub account.
+- click on your profile and find your organisations/github projects.
+http://docs.travis-ci.com/user/languages/ruby/
+
+### Setup Automatic Deployment to Heroku
+http://docs.travis-ci.com/user/deployment/heroku/

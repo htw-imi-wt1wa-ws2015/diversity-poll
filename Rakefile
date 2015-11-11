@@ -5,6 +5,9 @@ require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
 
+desc "task for travis"
+task :travis => [:spec]
+
 namespace :db do
   desc "Fill database with Dimensions and a sample poll"
   task :populate => :environment do
