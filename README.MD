@@ -35,7 +35,6 @@ You can skip that.
 ## Creating MVC using generate Scaffold
 
     rails g scaffold Poll name:string description:text
-    less db/migrate/
     less db/migrate/20151104165955_create_polls.rb
     rake db:migrate
     bundle exec rspec
