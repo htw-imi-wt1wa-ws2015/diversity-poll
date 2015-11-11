@@ -1,6 +1,10 @@
 
 # This is an example project for the class WT1: Web applications
 
+[![Build Status](https://travis-ci.org/htw-imi-wt1wa-ws2015/diversity-poll.svg?branch=master)](https://travis-ci.org/htw-imi-wt1wa-ws2015/diversity-poll)
+
+Heroku: https://diversity-poll.herokuapp.com/
+
 ## Setting up the rails project
 
 I usually create a specific gemset for each project.
