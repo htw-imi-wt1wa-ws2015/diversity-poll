@@ -122,7 +122,17 @@ The deployed app is at https://diversity-poll.herokuapp.com/
 Travis CI is a Continuous Integration Service - or, more precisely, an
 automated build server - that integrates nicely with GitHub and Heroku.
 
-See the .travis.yml in this example project and to see how I setup travis.
+### Setup Travis build
+
+- sign in to http://travis-ci.org with your GitHub account.
+- click on your profile and find your organisations/github projects.
+http://docs.travis-ci.com/user/languages/ruby/
+- Add Travis Service to your github repository on the settings page, e.g. https://github.com/htw-imi-wt1wa-ws2015/diversity-poll/settings/hooks
+- provide a .travis.yml config file in your repository, see below.
+
+### Travis Setup (.travis.yml)
+See the .travis.yml in this example project and http://docs.travis-ci.com/user/languages/ruby/
+to see how I setup travis.
 
 As we'll be using rspec for testing, we need to make sure that travis triggers
 the rspec tests. This can be done in two ways, either by putting a custom
@@ -131,13 +141,21 @@ do a combination of both: put `rake travis` into travis.yml and have a specific
 task in the Rakefile that can be easily adapted - see https://github.com/htw-imi-wt1wa-ws2015/ruby-learning/blob/master/Rakefile
 for an example.
 
+If you haven't integrated rspec yet, you can just redirect `rake travis` to
+`rake test` (or do nothing as it has the same effect). All I've done so far
+with the tests is to delete everything that failed - leaving a couple of
+automatically generated tests which make sure that most of the view can be
+rendered, which is a lot already.
 
 
-### Setup Travis build
+## Setup Automatic Deployment to Heroku
 
-- sign in to http://travis-ci.org with your GitHub account.
-- click on your profile and find your organisations/github projects.
-http://docs.travis-ci.com/user/languages/ruby/
-
-### Setup Automatic Deployment to Heroku
+Last not least, we're going to combine the two to achieve automatic deployment:
 http://docs.travis-ci.com/user/deployment/heroku/
+
+- in Heroku, go to "Manage Account" and generate/show your API Key.
+- add this API key to .travis.yml - I ran
+
+     travis encrypt $(heroku auth:token) --add deploy.api_key
+
+make sure `heroku auth:token` works first, which downloads and shows your auth token.

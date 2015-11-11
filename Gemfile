@@ -52,6 +52,10 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # for ci and deployment on heroku
+  gem 'travis'
+  gem 'heroku'
 end
 
 # changes for heroku, see https://devcenter.heroku.com/articles/getting-started-with-rails4
