@@ -163,3 +163,11 @@ http://docs.travis-ci.com/user/deployment/heroku/
      travis encrypt $(heroku auth:token) --add deploy.api_key
 
 make sure `heroku auth:token` works first, which downloads and shows your auth token.
+
+## Adding real tests
+
+We'll use [Capybara](https://github.com/jnicklas/capybara) for automated system
+tests: "Capybara helps you test web applications by simulating how a real user
+would interact with your app. "
+
+https://github.com/jnicklas/capybara#using-capybara-with-rspec
