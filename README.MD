@@ -171,3 +171,10 @@ tests: "Capybara helps you test web applications by simulating how a real user
 would interact with your app. "
 
 https://github.com/jnicklas/capybara#using-capybara-with-rspec
+
+see spec/feature for some simple examples.
+
+You are writing rspec tests, so you can use all of rspecs matchers!
+https://www.relishapp.com/rspec/rspec-expectations/v/2-2/docs/matchers
+the expect{}.to change... is explained here:
+https://www.relishapp.com/rspec/rspec-expectations/v/2-2/docs/matchers/expect-change
